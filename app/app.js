@@ -1,13 +1,16 @@
 import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
 import {Facebook} from 'ionic-native';
 import {Data} from './providers/data/data';
+import {LocationData} from './providers/location-data/location-data';
+import {Connectivity} from './providers/connectivity/connectivity';
 import {HomePage} from './pages/home/home';
 import {AboutPage} from './pages/about/about';
 import {LoginPage} from './pages/login/login';
+import {LocationPage} from './pages/location/location';
 
 @App({
   templateUrl: 'build/app.html',
-  providers: [Data],
+  providers: [Connectivity, Data, LocationData],
   config: {}
 })
 export class MyApp {
@@ -24,10 +27,11 @@ export class MyApp {
     this.app = app;
     this.menu = menu;
 
+    this.locationPage= LocationPage;
     this.homePage = HomePage
     this.aboutPage = AboutPage
-    
-    platform.ready().then(() => {    
+
+    platform.ready().then(() => {
 
     });
   }
