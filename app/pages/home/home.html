@@ -1,0 +1,31 @@
+<ion-navbar primary *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>
+    <img src = "images/logo.png" class="logo" />
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="home" id="chat">
+
+  <ion-list no-lines>
+
+    <ion-item *ngFor="#message of messages">
+      <ion-avatar item-left class="animate-in-primary">
+        <img [src]="message.picture">
+      </ion-avatar>
+      <div class="animate-in-secondary">
+        <h2>{{message.username}}</h2>
+        <p>{{message.message}}</p>
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
+
+<ion-toolbar position="bottom">
+      <ion-input [(ngModel)]="chatMessage" type="text" placeholder="enter message..."></ion-input>
+      <button (click)="sendMessage()" style="position:absolute; right: 0; top: 0; margin: 0;"><ion-icon name="chatbubbles"></ion-icon></button>
+</ion-toolbar>
